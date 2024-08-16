@@ -8,8 +8,10 @@ multiples of 3 or 5 below 1000.
 
 n = 1000
 
+# Filter all numbers that are not divisible by 3 and 5
 multiples = (i for i in range(n) if i % 3 == 0 or i % 5 == 0)
 
+# Calculate the sum of all the multiples
 answer = sum(multiples)
 
 print(f"The answer is {answer}")
