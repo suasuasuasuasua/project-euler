@@ -3,11 +3,11 @@
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1726002982,
+        "lastModified": 1726007471,
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "93e0871dbf9839238072f3a44532688b0fb657b9",
-        "treeHash": "91ada85a8a77939aa7868be32157c6cf3b0ad746",
+        "rev": "5b33edfb8a773d7896c8e8dd92229ef4f25a0b15",
+        "treeHash": "f692edeeea97b87061a3c733016c8d935ffa63ef",
         "type": "github"
       },
       "original": {
@@ -39,6 +39,22 @@
       }
     },
     "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696426674,
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "treeHash": "2addb7b71a20a25ea74feeaf5c2f6a6b30898ecb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_2": {
       "flake": false,
       "locked": {
         "lastModified": 1696426674,
@@ -91,6 +107,27 @@
         "type": "github"
       }
     },
+    "nixpkgs-python": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1722978926,
+        "owner": "cachix",
+        "repo": "nixpkgs-python",
+        "rev": "7c550bca7e6cf95898e32eb2173efe7ebb447460",
+        "treeHash": "d9d38ef1b6fc92be18170b74e9889a7ab9174f6e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "nixpkgs-python",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1725826545,
@@ -125,7 +162,7 @@
     },
     "pre-commit-hooks": {
       "inputs": {
-        "flake-compat": "flake-compat",
+        "flake-compat": "flake-compat_2",
         "gitignore": "gitignore",
         "nixpkgs": [
           "nixpkgs"
@@ -151,6 +188,7 @@
         "devenv": "devenv",
         "fenix": "fenix",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-python": "nixpkgs-python",
         "nixpkgs-stable": "nixpkgs-stable",
         "pre-commit-hooks": "pre-commit-hooks"
       }

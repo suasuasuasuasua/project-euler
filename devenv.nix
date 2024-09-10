@@ -9,19 +9,21 @@ in
 
   # https://devenv.sh/packages/
   packages = with pkgs-stable; [ 
+    fastfetch
     git 
   ];
 
   # https://devenv.sh/languages/
   languages.python = {
     enable = true;
+    version = "3.12";
     poetry = {
       enable = true;
       activate.enable = true;
       install = {
         enable = true;
         extras = [ ];
-        groups = [ ];
+        groups = [ "dev" ];
       };
     };
   };
@@ -40,6 +42,7 @@ in
   # https://devenv.sh/scripts/
   scripts.hello.exec = ''
     clear
+    fastfetch
     echo Loaded $GREET via nix!
   '';
 

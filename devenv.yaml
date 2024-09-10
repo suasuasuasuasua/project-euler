@@ -3,6 +3,11 @@ inputs:
     url: github:cachix/devenv-nixpkgs/rolling
   nixpkgs-stable:
     url: github:NixOS/nixpkgs/nixos-24.05
+  nixpkgs-python:
+    url: github:cachix/nixpkgs-python
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
   fenix:
     url: github:nix-community/fenix
     inputs:
