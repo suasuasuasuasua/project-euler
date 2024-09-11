@@ -23,6 +23,10 @@ using the instructions found here.
 ### Install `nix`
 
 ```bash
+### Via https://zero-to-nix.com/start/install (recommended)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+### Via https://devenv.sh/getting-started/
 ## Linux
 sh <(curl -L https://nixos.org/nix/install) --daemon
 

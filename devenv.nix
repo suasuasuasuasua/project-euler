@@ -9,8 +9,13 @@ in
 
   # https://devenv.sh/packages/
   packages = with pkgs-stable; [ 
-    fastfetch
     git 
+
+    fastfetch
+    btop
+
+    bat
+    yazi
   ];
 
   # https://devenv.sh/languages/
