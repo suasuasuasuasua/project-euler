@@ -76,7 +76,6 @@ def prime_factorize(n: int):
     while True:
         # Find the dividend and remainder from the current number and prime
         current_n, remainder = divmod(current_n, current_prime)
-        print(current_n, current_prime)
         if remainder == 0:
             factors[current_prime] += 1
             continue
@@ -103,10 +102,6 @@ largest_prime = max(prime_factors)
 
 # %% The final answer
 print(f"The answer is {largest_prime}")
-
-prime_factors = prime_factorize(67_280_421_310_721)
-largest_prime = max(prime_factors)
-
 
 # %% The final answer
 print(f"The answer is {largest_prime}")
