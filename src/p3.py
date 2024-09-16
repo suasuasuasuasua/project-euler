@@ -102,6 +102,3 @@ largest_prime = max(prime_factors)
 
 # %% The final answer
 print(f"The answer is {largest_prime}")
-
-# %% The final answer
-print(f"The answer is {largest_prime}")
