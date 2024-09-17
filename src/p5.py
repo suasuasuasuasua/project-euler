@@ -2,38 +2,33 @@
 # coding: utf-8
 
 from collections import defaultdict
+from typing import Iterable
+import functools as ft
 
-# # Problem 3 - Largest Prime Factor
-#
-# https://projecteuler.net/problem=3
-#
-# The prime factors of 13195 are 5, 7, 13, and 29.
-#
-# What is the largest prime factor of the number 600851475143?
 
-# The prime number that we are factorizing
-target_prime = 600_851_475_143
-
-# ## Prime Theory
+# # Problem 5 - Smallest Multiple
 #
-# - Each number is either a prime number or the factor of primes (see
-#   Fundamental Theorem of Arithmetic).
-# - No *efficient* algorithm exists for factorizing primes which is why
-#   cryptographic algorithms like RSA are powerful
-
-# ## Ideas
+# https://projecteuler.net/problem=5
 #
-# - We could just manually find all prime factors...but that sounds like a bad
-# idea.
-# - I found the General Number Field Sieve (GNFS) which is promising though!
-# - It can factor integers larger than $10^{100}$
+# $2520$ is the smallest number that can be divided by each of the numbers from
+# 1 to 10 without any remainder.
 #
+# What is the smallest positive number that is *evenly divisible* by all the
+# numbers from 1 to 20?
 
-# Before looking at the GNFS, Wikipedia suggests looking at the Rational Sieve
-# which is less efficient but is easier to conceptually understand (there is
-# even the Special Number Field Sieve lol).
-# All the sieves have the common purpose of factoring integers into prime
-# factors.
+# Ideas
+# A naiive solution would be to check every positive integer and attempt to
+# divide 1, 2, 3, ..., 20 and skipping any number that fails.
+# Obviously this is a bad idea because we can search for an indeterminate
+# amount of time.
+#
+# <stealing work from ./p3.py>
+
+# An interesting note is that since the
+
+
+def prod(l: Iterable) -> float:
+    return ft.reduce(lambda x, y: x * y, l)
 
 
 def is_prime(n: int):
@@ -66,6 +61,11 @@ def prime_factorize(n: int):
     primes = (i for i in range(2, n + 1))
     # Track the factors in a dictionary
     factors = defaultdict(int)
+
+    if n <= 1:
+        factors[n] = 1
+        return factors
+
     # Destructively track the number and prime
     current_n = n
     current_prime = next(primes)
@@ -93,12 +93,26 @@ def prime_factorize(n: int):
     return factors
 
 
-# prime_factors = prime_factorize(target_prime)
-# largest_prime = max(prime_factors)
-#
-prime_factors = prime_factorize(2520)
-largest_prime = prime_factors
+lower = 1
+upper = 20
 
+factors = defaultdict(int)
+
+# Prime factorize each of the numbers in the range to calculate the least common
+# multiple
+for i in range(1, upper + 1):
+    fs = prime_factorize(i)
+
+    # For each of the factors, only update the factors dictionary if the count
+    # is larger
+    for k, v in fs.items():
+        current = factors.get(k, 0)
+        if v > current:
+            factors[k] = v
+
+least_common_multiple = 1
+for k, v in factors.items():
+    least_common_multiple *= k**v
 
 # %% The final answer
-print(f"The answer is {largest_prime}")
+print(f"The answer is {least_common_multiple}")

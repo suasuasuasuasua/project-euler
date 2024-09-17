@@ -42,12 +42,10 @@ def is_palindrome(n: int) -> bool:
 
 # Generate all the palindromes between some ranges
 lower, upper = 100, 999
-lower_bound = lower ** 2
-upper_bound = upper ** 2
+lower_bound = lower**2
+upper_bound = upper**2
 
-palindromes = [
-    i for i in range(lower_bound, upper_bound+1) if is_palindrome(i)
-]
+palindromes = [i for i in range(lower_bound, upper_bound + 1) if is_palindrome(i)]
 
 # Find all valid palindromes for this problem space (because I'm extra)
 valid_palindromes = dict()
@@ -56,7 +54,7 @@ valid_palindromes = dict()
 # numbers
 for palindrome in palindromes:
     # Loop over each number in the bound
-    for i in range(lower, upper+1):
+    for i in range(lower, upper + 1):
         d, r = divmod(palindrome, i)
 
         # Ensure that the palindrome, if it is divisible, can be factored into
