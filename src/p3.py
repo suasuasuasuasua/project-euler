@@ -2,8 +2,6 @@
 # coding: utf-8
 
 from collections import defaultdict
-import math
-import numpy as np
 
 # # Problem 3 - Largest Prime Factor
 #
